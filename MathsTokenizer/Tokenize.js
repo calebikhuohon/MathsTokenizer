@@ -1,4 +1,12 @@
 const Token = require('./Token');
+const {
+    isComma,
+    isDigit,
+    isLeftParenthesis,
+    isLetter,
+    isOperator,
+    isRightParenthesis
+} = require('./charCheckers');
 
 const tokenize = (str) => {
     //array of tokens
@@ -9,7 +17,7 @@ const tokenize = (str) => {
     str = str.split("");
 
     str.forEach((char, idx) => {
-        if(isDigit(char)) {
+        if (isDigit(char)) {
             result.push(new Token('Literal', char));
         } else if (isLetter(char)) {
             result.push(new Token('Variable', char));
@@ -17,7 +25,7 @@ const tokenize = (str) => {
             result.push(new Token('Operator', char));
         } else if (isLeftParenthesis(char)) {
             result.push(new Token('Left Parenthesis', char));
-        } else if(isRightParenthesis(char)) {
+        } else if (isRightParenthesis(char)) {
             result.push(new Token('Right Parenthesis', char));
         } else if (isComma(char)) {
             result.push(new Token('Function Argument Separator', char));

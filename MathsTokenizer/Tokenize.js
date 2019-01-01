@@ -83,8 +83,25 @@ function tokenize(str) {
     }
 };
 
-const tokens = tokenize('89sin(45) + 2.2x/7');
+const exp = '89sin(45) + 2.2x/7';
+const tokens = tokenize(exp);
 tokens.forEach((token, index) => {
-    console.log(`${index} => ${token.type} (${token.value})`)
+    console.log(` ${index}  => ${token.type} (${token.value})`);
+    
+    //Result
+    // 0  => Literal (89)
+    // 1  => Operator (*)
+    // 2  => function (sin)
+    // 3  => Left Parenthesis (()
+    // 4  => Variable (undefined)
+    // 5  => Literal (45)
+    // 6  => Right Parenthesis ())
+    // 7  => Variable (undefined)
+    // 8  => Operator (+)
+    // 9  => Literal (2.2)
+    // 10  => Operator (*)
+    // 11  => Variable (x)
+    // 12  => Operator (/)
+    // 13  => Literal (7)
 })
 
